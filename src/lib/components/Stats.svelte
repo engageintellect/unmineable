@@ -7,22 +7,26 @@
   import { formatNumber } from '$lib/utils'
 </script>
 
-<div class="stats stats-vertical lg:stats-horizontal shadow w-full">
+<div
+  class="stats stats-vertical lg:stats-horizontal shadow w-full transition-all duration-300 ease-in-out"
+>
   <div class="stat">
     <div class="stat-title">Balance</div>
-    <div class="stat-value">{formatNumber(Number(tokenBalance)) || '0'}</div>
+    <div class="stat-value text-primary text-5xl">
+      {formatNumber(Number(tokenBalance)) || '0'}
+    </div>
     <div class="stat-desc">{tokenName || 'unknown'} Tokens</div>
   </div>
 
   <div class="stat">
     <div class="stat-title">Workers</div>
-    <div class="stat-value">{workerCount || 0}</div>
-    <div class="stat-desc">↗︎ 400 (22%)</div>
+    <div class="stat-value text-primary">{workerCount || 0}</div>
+    <div class="stat-desc">Currently online</div>
   </div>
 
   <div class="stat">
     <div class="stat-title">HashRate</div>
-    <div class="stat-value">{totalHashRate || 0}</div>
-    <div class="stat-desc">↘︎ 90 (14%)</div>
+    <div class="stat-value text-primary">{totalHashRate || 0} H/s</div>
+    <div class="stat-desc">Total Hashrate</div>
   </div>
 </div>

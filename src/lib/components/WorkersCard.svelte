@@ -20,7 +20,9 @@
             <td>
               <div class="flex items-center gap-3">
                 <div>
-                  <div class="font-bold text-xl">{worker.name}</div>
+                  <div class="font-bold text-xl text-primary">
+                    {worker.name}
+                  </div>
                 </div>
               </div>
             </td>

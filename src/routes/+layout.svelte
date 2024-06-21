@@ -33,6 +33,7 @@
 
   function handleLogout() {
     pb.authStore.clear()
+    window.location.href = '/'
   }
 </script>
 
@@ -42,7 +43,10 @@
   <div class="bg-base-100 text-neutral-content">
     <div class="navbar max-w-2xl mx-auto text-base-content">
       <div class="flex-1">
-        <a href="/" class="btn btn-primary text-xl">unmineable</a>
+        <a
+          href={$currentUser ? '/unmineable' : ''}
+          class="btn btn-primary text-xl">unmineable</a
+        >
       </div>
       <div class="flex-none gap-2">
         {#if $currentUser}

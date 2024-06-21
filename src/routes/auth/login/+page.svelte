@@ -11,7 +11,7 @@
 <form
   action="?/login"
   method="POST"
-  class="card sm:max-w-md sm:mt-10 mx-auto"
+  class="card sm:max-w-md sm:mt-10 mx-auto transition-all duration-300 ease-in-out"
   use:enhance={() => {
     return async ({ result }) => {
       if (result.type === 'redirect') {
