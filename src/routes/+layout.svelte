@@ -1,22 +1,20 @@
 <script lang="ts">
   import '../app.pcss'
-  import { applyAction, enhance } from '$app/forms'
   import { pb } from '$lib/pocketbase'
-  import { currentUser } from '$lib/stores/user'
-  import type { PageData } from './$types'
-  import daisyuiColors from 'daisyui/src/theming/themes'
-  import { selectedTheme } from '$lib/stores/theme'
-  import { onMount } from 'svelte'
   import Icon from '@iconify/svelte'
   import { getImageURL } from '$lib/utils'
   import { PUBLIC_POCKETBASE_URL } from '$env/static/public'
   import { Toaster } from 'svelte-french-toast'
+  import { currentUser } from '$lib/stores/user'
+  import { selectedTheme } from '$lib/stores/theme'
+  import daisyuiColors from 'daisyui/src/theming/themes'
+  import { onMount } from 'svelte'
+  import type { PageData } from './$types'
 
   export let data: PageData
 
   let themes = Object.keys(daisyuiColors)
 
-  // Set the current user from the data passed in from the server
   $: currentUser.set(data.user)
 
   onMount(() => {
@@ -31,6 +29,10 @@
     const theme = event.target.value
     selectedTheme.set(theme)
     localStorage.setItem('selectedTheme', theme)
+  }
+
+  function handleLogout() {
+    pb.authStore.clear()
   }
 </script>
 
@@ -104,10 +106,6 @@
                     icon="mdi-account-circle"
                     class="h-full w-full scale-[110%] transition-scale duration-200 md:hover:scale-[105%] rounded-full text-base-100 "
                   />
-                  <!-- <img
-                    alt="Tailwind CSS Navbar component"
-                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                  /> -->
                 {/if}
               </div>
             </div>
@@ -177,14 +175,8 @@
               <form
                 class="w-full flex mt-5"
                 method="POST"
-                action="/logout"
-                use:enhance={() => {
-                  return async ({ result }) => {
-                    pb.authStore.clear()
-                    window.location.href = '/'
-                    await applyAction(result)
-                  }
-                }}
+                action="/auth/logout"
+                on:submit={handleLogout}
               >
                 <button class="btn w-full group/logoutButton">
                   <div class="flex w-full items-center justify-between">

@@ -2,7 +2,7 @@
 
 ## Description
 
-A complete, fullstack template for Svelte.
+A crypto miner worker dashboard for unemineable.com. The app allows users to track their mining progress, view their earnings, and chat with a contextually aware chatbot.
 
 ![Image Description](/src/lib/assets/images/unmineable.png)
 
@@ -16,6 +16,7 @@ A complete, fullstack template for Svelte.
 - [Vercel AI SDK](https://vercel.com/ai): AI/ML models for image, text, and audio processing.
 - [TailwindCSS](https://tailwindcss.com): A utility-first CSS framework for rapid UI development.
 - [Zod](https://zod.dev): TypeScript-first schema declaration and validation.
+- [Unmineable](https://unmineable.com): Mine unmineable crypto currencies via XMR.
 
 ## Getting Started
 

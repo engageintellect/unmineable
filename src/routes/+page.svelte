@@ -122,7 +122,11 @@
 
         <div class="my-5 card shadow">
           <div class="card-body p-5">
-            <div class="text-2xl">Workers: {workersData.length}</div>
+            <div class="text-2xl">
+              Workers: <span class="text-primary font-bold"
+                >{workersData.length}</span
+              >
+            </div>
             {#if workersData.length === 0}
               <div class="text-center text-2xl">No workers found</div>
             {:else}

@@ -3,12 +3,14 @@
   export let tokenBalance: any
   export let workerCount: any
   export let totalHashRate: any
+
+  import { formatNumber } from '$lib/utils'
 </script>
 
 <div class="stats stats-vertical lg:stats-horizontal shadow w-full">
   <div class="stat">
     <div class="stat-title">Balance</div>
-    <div class="stat-value">{tokenBalance || 0}</div>
+    <div class="stat-value">{formatNumber(Number(tokenBalance)) || '0'}</div>
     <div class="stat-desc">{tokenName || 'unknown'} Tokens</div>
   </div>
 

@@ -26,3 +26,17 @@ export const validateData = async (formData:any, schema:any) => {
 		};
 	}
 };
+
+export const formatNumber = (value: number): string => {
+  // Round to two decimal places
+  const roundedValue = value.toFixed(2);
+
+  // Convert to a string and split into integer and decimal parts
+  const [integerPart, decimalPart] = roundedValue.split('.');
+
+  // Add commas to the integer part
+  const formattedIntegerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+  // Combine integer and decimal parts
+  return `${formattedIntegerPart}.${decimalPart}`;
+}
