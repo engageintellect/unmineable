@@ -1,16 +1,17 @@
 <script lang="ts">
-  import { PUBLIC_DOCS_URL } from '$env/static/public'
+  import { PUBLIC_DOCS_URL, PUBLIC_POCKETBASE_URL } from '$env/static/public'
   import { currentUser } from '$lib/stores/user'
   import Icon from '@iconify/svelte'
   import { fade } from 'svelte/transition'
   import Stats from '$lib/components/Stats.svelte'
   import WorkersCard from '$lib/components/WorkersCard.svelte'
-
+  import StatsCard from '$lib/components/StatsCard.svelte'
+  import AddressCard from '$lib/components/AdressCard.svelte'
   import type { PageData } from './$types'
+  import { totalHashRate } from '$lib/stores/hashrate'
 
   export let data: PageData
-
-  let adressData = data.addressData.data
+  let addressData = data.addressData.data
   let statsData = data.statsData.data
   let workersData = data.workerData.data.randomx.workers
 </script>
@@ -58,71 +59,39 @@
         </div>
       </div>
     </div>
-
-    <!-- <div
-      transition:fade={{ duration: 500 }}
-      class="mockup-browser border border-base-300 shadow-xl mt-5"
-    >
-      <div class="mockup-browser-toolbar">
-        <div class="bg-base-300 px-2 py-1 w-full card">
-          <div class="flex items-center gap-1">
-            <Icon icon="mdi-search" class="w-5 h-5" />
-            unmineable.engage-dev.com
-          </div>
-        </div>
-      </div>
-
-      <div class="overflow-auto">
-        <div
-          class="flex overflow-auto justify-center h-64 sm:h-80 transition-all duration-300 items-center border-t border-base-300 bg-gradient-to-b from-primary to-primary/0 px-4 gap-2"
-        >
-          <Icon
-            icon="teenyicons-svelte-solid"
-            class="w-52 h-52 text-base-300"
-          />
-          <Icon
-            icon="simple-icons:pocketbase"
-            class="w-52 h-52 text-base-300"
-          />
-          <Icon icon="simple-icons:vercel" class="w-52 h-52 text-base-300" />
-          <Icon
-            icon="simple-icons:tailwindcss"
-            class="w-52 h-52 text-base-300"
-          />
-          <Icon icon="simple-icons:zod" class="w-52 h-52 text-base-300" />
-        </div>
-      </div>
-    </div> -->
-  {:else if data}
+  {:else if $currentUser.verified}
     <div class="flex flex-col gap-10">
       <div>
-        <h1 class="text-7xl">
-          <div
-            class="tracking-tight text-primary font-extrabold flex items-center"
-          >
-            <div>mining</div>
-            <div class="font-thin text-primary/[33%] tracking-tighter">
-              data
+        <div class="px-5">
+          <h1 class="text-7xl">
+            <div
+              class="tracking-tight text-primary font-extrabold flex items-center"
+            >
+              <div>mining</div>
+              <div class="font-thin text-primary/[33%] tracking-tighter">
+                data
+              </div>
             </div>
-          </div>
-        </h1>
-        <p class="mt-2">
-          visit <a class="text-primary underline" href={PUBLIC_DOCS_URL}>docs</a
-          > for more info
-        </p>
+          </h1>
+          <p class="mt-2">
+            visit <a class="text-primary underline" href={PUBLIC_DOCS_URL}
+              >docs</a
+            > for more info
+          </p>
+        </div>
 
-        <div class="my-5">
+        <div class="my-2">
           <Stats
             tokenBalance={statsData.balance_mining}
             workerCount={workersData.length}
-            totalHashRate={999}
+            totalHashRate={$totalHashRate}
             tokenName={statsData.coin}
           />
         </div>
 
-        <div class="my-5 card shadow">
+        <div class="my-2 card shadow">
           <div class="card-body p-5">
-            <div class="text-2xl">
+            <div class="card-title">
               Workers: <span class="text-primary font-bold text-3xl"
                 >{workersData.length}</span
               >
@@ -135,34 +104,29 @@
           </div>
         </div>
 
-        <div class="my-5 card shadow">
-          <div class="card-body p-5">
-            <div class="text-2xl">Stats</div>
-            <div class="">
-              {JSON.stringify(statsData, null, 2)}
-              <!-- {#each workers as worker}
-            {worker.name}
-            {worker.rhr}
-          {/each} -->
-            </div>
-          </div>
-        </div>
+        <StatsCard
+          rewards={statsData.rewarded}
+          payment_threshold={statsData.payment_threshold}
+          network={statsData.network}
+        />
 
-        <div class="my-5 card shadow">
-          <div class="card-body p-5">
-            <div class="text-2xl">Address</div>
-            <div class="">
-              {JSON.stringify(adressData, null, 2)}
-              <!-- {#each workers as worker}
-            {worker.name}
-            {worker.rhr}
-          {/each} -->
-            </div>
-          </div>
-        </div>
+        <AddressCard {addressData} />
       </div>
     </div>
   {:else}
-    <div>hi</div>
+    <div in:fade class="card shadow">
+      <div class="card-body">
+        <div class="card-title">Error:</div>
+        <div>Must be a verified user to view mining data.</div>
+        <div>
+          Make sure that the user you are trying to log in as has the "verified"
+          option toggled to "true" in the users table of the <a
+            href={`${PUBLIC_POCKETBASE_URL}/_/`}
+            class="text-primary underline">Pocketbase</a
+          >
+          admin panel.
+        </div>
+      </div>
+    </div>
   {/if}
 </div>

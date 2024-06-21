@@ -7,9 +7,7 @@
   import { formatNumber } from '$lib/utils'
 </script>
 
-<div
-  class="stats stats-vertical lg:stats-horizontal shadow w-full transition-all duration-300 ease-in-out"
->
+<div class="stats stats-vertical lg:stats-horizontal shadow w-full">
   <div class="stat">
     <div class="stat-title">Balance</div>
     <div class="stat-value text-primary text-5xl">

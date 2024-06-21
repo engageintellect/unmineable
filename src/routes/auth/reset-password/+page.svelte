@@ -28,7 +28,7 @@
   </div>
 
   {#if form?.success}
-    <div class="alert alert-success my-5">
+    <div class="alert alert-success my-2">
       <div class="flex gap-2 items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"

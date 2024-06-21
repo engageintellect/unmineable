@@ -64,3 +64,6 @@ pnpm i && pnpm run dev --host
 ```
 
 4. Open your browser to `http://localhost:5173` to see the app.
+
+5. Register a new user and log in to the app.
+   **NOTE:** Being that this app could have sensitive information, after registering your user you will need to toggle the "verified" option in the "users" collection in pocketbase before logging in.

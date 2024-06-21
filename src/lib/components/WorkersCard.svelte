@@ -1,28 +1,41 @@
 <script lang="ts">
+  import { PUBLIC_SERVER_DASHBOARD_URL } from '$env/static/public'
+  import { totalHashRate } from '$lib/stores/hashrate'
+  import { onMount } from 'svelte'
+
   export let workerData: any
+
+  onMount(() => {
+    const updateTotalHashRate = () => {
+      totalHashRate.set(
+        workerData.reduce(
+          (acc: any, worker: any) => acc + Number(worker.rhr),
+          0,
+        ),
+      )
+    }
+
+    updateTotalHashRate()
+  })
 </script>
 
 <div class="overflow-x-auto">
   <table class="w-full">
-    <!-- head -->
-    <!-- <thead> -->
-    <!-- <tr> -->
-    <!-- <th>Worker</th> -->
-    <!-- <th>Job</th> -->
-    <!-- <th></th> -->
-    <!-- </tr> -->
-    <!-- </thead> -->
     <tbody>
-      <!-- row 1 -->
       {#each [workerData] as workers}
         {#each workers as worker}
           <tr>
             <td>
               <div class="flex items-center gap-3">
                 <div>
-                  <div class="font-bold text-xl text-primary">
+                  <a
+                    href={PUBLIC_SERVER_DASHBOARD_URL
+                      ? `${PUBLIC_SERVER_DASHBOARD_URL}`
+                      : '#'}
+                    class="font-bold text-xl text-primary"
+                  >
                     {worker.name}
-                  </div>
+                  </a>
                 </div>
               </div>
             </td>

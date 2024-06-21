@@ -17,12 +17,11 @@
           unmineable
         </h1>
         <p class="py-5">
-          The best way to start your next <a
-            href="https://kit.svelte.dev"
-            class="text-primary underline">Svelte</a
+          The best way to track your <a
+            href="https://unmineable.com"
+            class="text-primary underline">unmineable</a
           >
-          project, if you care about building
-          <span class="text-primary italic">fast</span>...
+          workers, tokens, and stats.
         </p>
         <div class="max-w-md flex gap-2">
           <a
