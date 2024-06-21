@@ -1,4 +1,4 @@
-# spatz docs
+# unmineable docs
 
 # About
 
