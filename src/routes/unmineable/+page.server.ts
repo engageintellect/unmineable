@@ -1,4 +1,4 @@
-import type { LayoutServerLoad } from './$types';
+import type { PageServerLoad } from './$types';
 import { ADDRESS, BASE_UNMINEABLE_API, COIN, UNMINEABLE_UUID } from '$env/static/private';
 
 const fetchAddressData = async () => {
@@ -20,7 +20,7 @@ const fetchStatsData = async () => {
 }
 
 
-export const load: LayoutServerLoad = async () => {	
+export const load: PageServerLoad = async () => {	
 	const addressData = await fetchAddressData();
 	const workerData = await fetchWorkerData();
 	const statsData = await fetchStatsData();
