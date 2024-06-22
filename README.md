@@ -4,7 +4,7 @@
 
 A crypto miner worker dashboard for unemineable.com. The app allows users to track their mining progress, view their earnings, and chat with a contextually aware chatbot.
 
-![Dashboard Preview](/src/lib/assets/images/unmineable.png)
+[![Dashboard Preview](/src/lib/assets/images/unmineable.png)](https://mine.engage-dev.com)
 
 [Demo App](https://mine.engage-dev.com)
 
