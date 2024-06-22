@@ -65,12 +65,17 @@
         <div class="px-5">
           <h1 class="text-7xl">
             <div
-              class="tracking-tight text-primary font-extrabold flex items-center"
+              class="tracking-tight text-primary font-extrabold flex gap-2 items-center"
             >
-              <div>mining</div>
-              <div class="font-thin text-primary/[33%] tracking-tighter">
-                data
+              <div class="avatar">
+                <div class="w-16 rounded-full">
+                  <img
+                    src={`https://www.unmineable.com/img/logos/${statsData.coin}.png?v2`}
+                  />
+                </div>
               </div>
+
+              <div class="text-base-content font-bold">{statsData.coin}</div>
             </div>
           </h1>
           <p class="mt-2">
