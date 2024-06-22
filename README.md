@@ -6,8 +6,6 @@ A crypto miner worker dashboard for unemineable.com. The app allows users to tra
 
 ![Dashboard Preview](/src/lib/assets/images/unmineable.png)
 
-![Image Description](/src/lib/assets/images/unmineable.png)
-
 [Demo App](https://unmineable.engage-dev.com)
 
 ## Features
