@@ -21,6 +21,13 @@
 
 <div class="overflow-x-auto">
   <table class="w-full">
+    <thead>
+      <tr class="text-left">
+        <th class="text-lg font-thin">Worker</th>
+        <th class="text-lg font-thin">Status</th>
+        <th class="text-lg font-thin">Hashrate</th>
+      </tr>
+    </thead>
     <tbody>
       {#each [workerData] as workers}
         {#each workers as worker}
@@ -39,11 +46,17 @@
                 </div>
               </div>
             </td>
+
+            {#if worker.online === true}
+              <td class="text-xl text-success font-thin">online</td>
+            {:else}
+              <td class="text-xl text-error font-thin">offline</td>
+            {/if}
+
             <td class="text-xl">
-              {worker.rhr} H/s
+              {worker.chr} H/s
             </td>
-          </tr>
-        {/each}
+          </tr>{/each}
       {/each}
     </tbody>
   </table>
