@@ -1,17 +1,14 @@
 <script lang="ts">
   import { applyAction, enhance } from '$app/forms'
-  import { goto } from '$app/navigation'
   import Input from '$lib/components/Input.svelte'
-  import { redirect } from '@sveltejs/kit'
   export let form
   let loading = false
-  import { fade } from 'svelte/transition'
 </script>
 
 <form
   action="?/login"
   method="POST"
-  class="card sm:max-w-md sm:mt-10 mx-auto transition-all duration-300 ease-in-out"
+  class="card max-w-md sm:mt-10 mx-auto transition-all duration-300 ease-in-out"
   use:enhance={() => {
     return async ({ result }) => {
       if (result.type === 'redirect') {

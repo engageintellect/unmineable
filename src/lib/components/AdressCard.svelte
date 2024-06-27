@@ -17,7 +17,7 @@
 
           <a
             href={`${addressData.chains[0].explorer_address}/${value}`}
-            class="badge badge-primary p-4 hover:underline transition-all duration-200 ease-in-out overflow-auto"
+            class="badge badge-primary p-4 hover:underline transition-all duration-200 ease-in-out overflow-x-auto overflow-y-hidden"
           >
             {value}
           </a>
