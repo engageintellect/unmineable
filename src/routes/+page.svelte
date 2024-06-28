@@ -48,39 +48,26 @@
       </div>
     </div>
   </div>
-
-  <!-- <div
-      transition:fade={{ duration: 500 }}
-      class="mockup-browser border border-base-300 shadow-xl mt-5"
-    >
-      <div class="mockup-browser-toolbar">
-        <div class="bg-base-300 px-2 py-1 w-full card">
-          <div class="flex items-center gap-1">
-            <Icon icon="mdi-search" class="w-5 h-5" />
-            unmineable.engage-dev.com
-          </div>
+  <div class="mockup-browser border border-base-300 shadow-xl mt-5">
+    <div class="mockup-browser-toolbar">
+      <div class="bg-base-300 px-2 py-1 w-full card">
+        <div class="flex items-center gap-1">
+          <Icon icon="mdi-search" class="w-5 h-5" />
+          mine.engage-dev.com
         </div>
       </div>
+    </div>
 
-      <div class="overflow-auto">
-        <div
-          class="flex overflow-auto justify-center h-64 sm:h-80 transition-all duration-300 items-center border-t border-base-300 bg-gradient-to-b from-primary to-primary/0 px-4 gap-2"
-        >
-          <Icon
-            icon="teenyicons-svelte-solid"
-            class="w-52 h-52 text-base-300"
-          />
-          <Icon
-            icon="simple-icons:pocketbase"
-            class="w-52 h-52 text-base-300"
-          />
-          <Icon icon="simple-icons:vercel" class="w-52 h-52 text-base-300" />
-          <Icon
-            icon="simple-icons:tailwindcss"
-            class="w-52 h-52 text-base-300"
-          />
-          <Icon icon="simple-icons:zod" class="w-52 h-52 text-base-300" />
-        </div>
+    <div class="overflow-auto">
+      <div
+        class="flex overflow-auto justify-center h-64 sm:h-80 transition-all duration-300 items-center border-t border-base-300 bg-gradient-to-b from-primary to-primary/0 px-4 gap-2"
+      >
+        <Icon icon="cryptocurrency:btc" class="w-52 h-52 text-base-300" />
+        <Icon icon="cryptocurrency:eth" class="w-52 h-52 text-base-300" />
+        <Icon icon="cryptocurrency:sol" class="w-52 h-52 text-base-300" />
+        <Icon icon="cryptocurrency:doge" class="w-52 h-52 text-base-300" />
+        <Icon icon="cryptocurrency:ada" class="w-52 h-52 text-base-300" />
       </div>
-    </div> -->
+    </div>
+  </div>
 </div>

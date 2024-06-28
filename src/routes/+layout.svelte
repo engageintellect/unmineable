@@ -44,7 +44,7 @@
     <div class="navbar max-w-2xl mx-auto text-base-content">
       <div class="flex-1">
         <a
-          href={$currentUser ? '/unmineable' : ''}
+          href={$currentUser ? '/unmineable' : '/'}
           class="btn btn-primary text-xl">unmineable</a
         >
       </div>
